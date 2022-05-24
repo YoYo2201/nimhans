@@ -17,6 +17,8 @@ export class SamplesComponent implements OnInit {
 
   ngOnInit(): void {
    
+    this.sampleService.getSampleOutput().subscribe((response) => console.log(response));
+    
     this.tatSubscription = timer(0, 5 * 60 * 1000)
       .pipe(switchMap(() => this.sampleService.getStats()))
       .subscribe((data) => {
